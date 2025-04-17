@@ -1,0 +1,1 @@
+pnpm test run && pnpm lint --fix && pnpm check-types
