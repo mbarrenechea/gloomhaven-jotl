@@ -1,0 +1,70 @@
+[
+  {
+    "id": "zealot",
+    "name": "Fanático",
+    "normal": {
+      "health": [4, 6, 7, 8, 10, 12, 14, 16],
+      "movement": [2, 2, 3, 3, 3, 4, 4, 4],
+      "attack": [2, 2, 3, 3, 3, 3, 4, 5],
+      "skills": [
+        null,
+        null,
+        null,
+        [{ "id": "wound", "value": 1 }],
+        [{ "id": "wound", "value": 1 }],
+        [{ "id": "wound", "value": 1 }],
+        [{ "id": "wound", "value": 1 }],
+        [{ "id": "wound", "value": 1 }]
+      ]
+    },
+    "elite": {
+      "health": [7, 8, 11, 13, 17, 18, 22, 26],
+      "movement": [2, 2, 3, 3, 3, 4, 4, 4],
+      "attack": [3, 3, 3, 4, 4, 5, 6, 7],
+      "skills": [
+        null,
+        [{ "id": "wound", "value": 1 }],
+        [{ "id": "wound", "value": 1 }],
+        [{ "id": "wound", "value": 1 }],
+        [{ "id": "wound", "value": 1 }],
+        [{ "id": "wound", "value": 1 }],
+        [{ "id": "wound", "value": 1 }],
+        [{ "id": "wound", "value": 1 }]
+      ]
+    }
+  },
+  {
+    "id": "stone-golem",
+    "name": "Golem de piedra",
+    "normal": {
+      "health": [10, 10, 11, 11, 12, 13, 16, 16],
+      "movement": [1, 1, 1, 1, 2, 2, 2, 2],
+      "attack": [3, 3, 4, 4, 4, 5, 5, 5],
+      "skills": [
+        null,
+        [{ "id": "shield", "value": 1 }],
+        [{ "id": "shield", "value": 1 }],
+        [{ "id": "shield", "value": 2 }],
+        [{ "id": "shield", "value": 2 }],
+        [{ "id": "shield", "value": 2 }],
+        [{ "id": "shield", "value": 2 }],
+        [{ "id": "shield", "value": 3 }]
+      ]
+    },
+    "elite": {
+      "health": [10, 11, 13, 14, 16, 18, 20, 21],
+      "movement": [2, 2, 2, 2, 2, 3, 3, 3],
+      "attack": [4, 4, 5, 5, 6, 6, 7, 7],
+      "skills": [
+        [{ "id": "shield", "value": 1 }],
+        [{ "id": "shield", "value": 2 }],
+        [{ "id": "shield", "value": 2 }],
+        [{ "id": "shield", "value": 3 }],
+        [{ "id": "shield", "value": 3 }],
+        [{ "id": "shield", "value": 3 }],
+        [{ "id": "shield", "value": 3 }],
+        [{ "id": "shield", "value": 4 }]
+      ]
+    }
+  }
+]

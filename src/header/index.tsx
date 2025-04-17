@@ -19,7 +19,7 @@ export const Header = () => {
     <header className="bg-card py-4 text-foreground">
       <div className="container">
         <div className="flex items-center justify-between">
-          <h1 className="font-display text-4xl">Gloomhaven: combat</h1>
+          <h1 className="font-display text-4xl">Gloomhaven</h1>
 
           <div className="flex items-center gap-4">
             <Label
