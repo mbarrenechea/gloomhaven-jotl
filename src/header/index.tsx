@@ -24,7 +24,7 @@ export const Header = () => {
           <div className="flex items-center gap-2">
             <Label
               htmlFor="players"
-              className="uppercase text-sm leading-0 block font-display tracking-widest"
+              className="font-display block text-sm leading-0 tracking-widest uppercase"
             >
               Players:
             </Label>
@@ -37,19 +37,14 @@ export const Header = () => {
             >
               {PLAYERS.map((player) => (
                 <div className="flex items-center" key={player}>
-                  <RadioGroupItem
-                    className="hidden"
-                    value={player}
-                    id={player}
-                  />
+                  <RadioGroupItem className="hidden" value={player} id={player} />
                   <Label
                     className={cn({
-                      "font-display text-base w-10 h-10 border border-transparent items-center justify-center rounded-full cursor-pointer transition-colors duration-300 ease-in-out ":
+                      "font-display h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-transparent text-base transition-colors duration-300 ease-in-out":
                         true,
-                      "hover:bg-neutral-300 hover:text-foreground focus:ring-2 focus:ring-neutral-500 focus:ring-offset-2 focus:ring-offset-neutral-500":
+                      "hover:text-foreground hover:bg-neutral-300 focus:ring-2 focus:ring-neutral-500 focus:ring-offset-2 focus:ring-offset-neutral-500":
                         players !== player,
-                      "border-neutral-300 bg-amber-500 text-foreground":
-                        players === player,
+                      "text-foreground border-neutral-300 bg-amber-500": players === player,
                     })}
                     htmlFor={player}
                   >
