@@ -24,11 +24,11 @@ import MONSTERS from "@/data/monsters.json";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { useLocalStorage } from "usehooks-ts";
-import { Monster } from "./types";
+import { Monster, MonsterLevel } from "./types";
 
 const formSchema = z.object({
   id: z.string().min(1, "Please select a monster"),
-  level: z.number(),
+  level: z.number().min(0).max(7),
   type: z.enum(["normal", "elite"]),
   quantity: z.number().min(1).max(8),
 });
@@ -53,13 +53,15 @@ export const MonsterForm = () => {
         const monster = MONSTERS.find((monster) => monster.id === id);
         if (!monster) return null;
         return {
-          id: `${id}-${i}`,
-          level: values.level,
+          id,
+          index: i,
+          name: monster.name,
+          level: values.level as MonsterLevel,
           type: values.type,
           health: monster[type].health[values.level],
           movement: monster[type].movement[values.level],
           attack: monster[type].attack[values.level],
-        };
+        } satisfies Monster;
       }).filter((monster) => monster !== null) as Monster[];
 
       return [...prev, ...arr];

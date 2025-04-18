@@ -17,6 +17,8 @@ export type MonsterSkills =
 
 export type Monster = {
   id: string;
+  name: string;
+  index: number;
   level: MonsterLevel;
   type: MonsterType;
   health: number;
