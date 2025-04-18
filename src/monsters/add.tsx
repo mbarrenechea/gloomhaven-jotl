@@ -7,6 +7,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { LucidePlus } from "lucide-react";
+import { MonsterForm } from "./form";
 
 export const AddMonster = () => {
   return (
@@ -23,8 +24,8 @@ export const AddMonster = () => {
             </Button>
           </SheetTrigger>
 
-          <SheetContent className="p-4">
-            <SheetTitle className="text-4xl font-display">Add new monsters</SheetTitle>
+          <SheetContent className="p-8 bg-sidebar">
+            <SheetTitle className="text-2xl font-display sr-only">Add new monsters</SheetTitle>
             <SheetDescription className="text-xl sr-only">
               Use this sheet to add a{" "}
               <strong className="text-foreground">new monster to the game.</strong> You can select
@@ -36,6 +37,8 @@ export const AddMonster = () => {
               your game right away. If you need to make any changes to the monster later, you can
               always edit its stats or abilities from the active monsters list.
             </SheetDescription>
+
+            <MonsterForm />
           </SheetContent>
         </Sheet>
       </div>

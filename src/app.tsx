@@ -3,10 +3,10 @@ import { AddMonster } from "./monsters/add";
 
 function App() {
   return (
-    <>
+    <main>
       <Header />
       <AddMonster />
-    </>
+    </main>
   );
 }
 
