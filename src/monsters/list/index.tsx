@@ -3,7 +3,7 @@ import { Monster } from "@/monsters/types";
 
 export const MonsterList = ({ monsters }: { monsters: Monster[] }) => {
   return (
-    <ul className="grid grid-cols-1 gap-4">
+    <ul className="grid grid-cols-2 gap-4">
       {monsters.map((monster) => (
         <li
           key={`${monster.id}-${monster.type}-${monster.index}`}

@@ -23,11 +23,11 @@ export const MonsterGroupItem = ({
 
   return (
     <div className="bg-accent w-full shadow-md p-4 rounded-lg">
-      <header className="flex items-start justify-between gap-4 mb-4">
+      <header className="flex items-start justify-between gap-1 mb-2">
         <h2 className="text-2xl font-bold">{MONSTER.name}</h2>
 
-        <div className="flex items-center gap-2">
-          <div className="flex items-center gap-2">
+        <div className="flex items-center">
+          <div className="flex items-center gap-1">
             <Stat variant="movement" size="sm">
               <MoveIcon className="w-5 h-5" />
               {movement}

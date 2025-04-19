@@ -8,7 +8,7 @@ export const MonsterGroupList = () => {
   return (
     <section className="py-10">
       <div className="container">
-        <ul className="grid grid-cols-5 items-start gap-5">
+        <ul className="grid grid-cols-3 items-start gap-5">
           {monstersGroups.map((monsterGroup) => {
             const [groupKey, monsters] = monsterGroup;
             const [id, type, level] = groupKey.split(":");
