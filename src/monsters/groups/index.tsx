@@ -8,20 +8,24 @@ export const MonsterGroupList = () => {
   return (
     <section className="py-10">
       <div className="container">
-        {monstersGroups.map((monsterGroup) => {
-          const [groupKey, monsters] = monsterGroup;
-          const [id, type, level] = groupKey.split(":");
+        <ul className="grid grid-cols-5 items-start gap-5">
+          {monstersGroups.map((monsterGroup) => {
+            const [groupKey, monsters] = monsterGroup;
+            const [id, type, level] = groupKey.split(":");
 
-          return (
-            <MonsterGroupItem
-              key={groupKey}
-              id={id}
-              type={type as Monster["type"]}
-              level={+level as Monster["level"]}
-              monsters={monsters}
-            />
-          );
-        })}
+            return (
+              <li key={groupKey} className="flex items-center justify-start w-full">
+                <MonsterGroupItem
+                  key={groupKey}
+                  id={id}
+                  type={type as Monster["type"]}
+                  level={+level as Monster["level"]}
+                  monsters={monsters}
+                />
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </section>
   );

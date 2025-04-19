@@ -2,7 +2,7 @@ import { Stat } from "@/components/stat";
 import { cn } from "@/lib/utils";
 import { Monster } from "@/monsters/types";
 
-export const MonsterItem = ({ type, index, image, health, attack, movement }: Monster) => {
+export const MonsterItem = ({ type, index, image, health }: Monster) => {
   return (
     <div
       className={cn({
@@ -16,9 +16,11 @@ export const MonsterItem = ({ type, index, image, health, attack, movement }: Mo
       </div>
       <div className="absolute w-full h-full top-0 left-0 grid grid-cols-2 gap-2">
         <div className="flex flex-col items-start justify-start w-full h-full text-foreground">
-          <Stat variant="health">{health}</Stat>
-          <Stat variant="attack">{attack}</Stat>
-          <Stat variant="movement">{movement}</Stat>
+          <Stat variant="health" size="lg">
+            {health}
+          </Stat>
+          {/* <Stat variant="attack">{attack}</Stat>
+          <Stat variant="movement">{movement}</Stat> */}
         </div>
         <div className="flex flex-col items-end justify-between w-full h-full text-foreground">
           <Stat variant="default">{index}</Stat>
