@@ -54,8 +54,9 @@ export const MonsterForm = () => {
         if (!monster) return null;
         return {
           id,
-          index: i,
+          index: i + 1,
           name: monster.name,
+          image: monster.image,
           level: values.level as MonsterLevel,
           type: values.type,
           health: monster[type].health[values.level],

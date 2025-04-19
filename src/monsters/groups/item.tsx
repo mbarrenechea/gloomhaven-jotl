@@ -1,10 +1,12 @@
 import { useMonsterStats } from "@/lib/monsters";
+import { MonsterList } from "@/monsters/list";
 import { Monster } from "@/monsters/types";
 
 export const MonsterGroupItem = ({
   id,
   type,
   level,
+  monsters,
 }: {
   id: Monster["id"];
   type: Monster["type"];
@@ -20,11 +22,10 @@ export const MonsterGroupItem = ({
         <h2 className="text-2xl font-bold">
           {MONSTER.name} ({type})
         </h2>
-        <p>
-          Health: {MONSTER.health} | Movement: {MONSTER.movement} | Attack: {MONSTER.attack} | Level{" "}
-          {level}
-        </p>
+        <p>Skills {MONSTER.skills?.join(", ")}</p>
       </header>
+
+      <MonsterList monsters={monsters} />
     </div>
   );
 };
