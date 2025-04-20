@@ -7,7 +7,6 @@ export const MonsterItem = ({ id, type, index, image, health, movement, attack }
   const [, setMonsters] = useLocalStorage<Monster[]>("monsters", []);
   const handleHealthChange = (v: number) => {
     // Handle health increment logic here
-    console.log(id, health);
     setMonsters((prev) => {
       const monsterIndex = prev.findIndex((monster) => monster.id === id);
       if (monsterIndex === -1) return prev;
@@ -38,6 +37,26 @@ export const MonsterItem = ({ id, type, index, image, health, movement, attack }
         "border-2 border-white": type === "normal",
       })}
     >
+      {health <= 0 && (
+        <div
+          className={cn(
+            "flex flex-col items-center justify-center absolute z-20 top-0 left-0 bottom-0 right-0 bg-background/50 rounded-lg overflow-hidden fade-in duration-1000",
+            {
+              "animate-in": health <= 0,
+            },
+          )}
+        >
+          <img
+            src="/monsters/blood.png"
+            alt="dead"
+            className={cn("absolute top-0 left-0 w-full h-full object-cover opacity-50", {
+              "animate-in": health <= 0,
+            })}
+          />
+          Monedica!!!!
+        </div>
+      )}
+
       <div className="w-full h-full aspect-square rounded-full overflow-hidden">
         <img src={image} alt={type} className="w-full object-cover" />
       </div>

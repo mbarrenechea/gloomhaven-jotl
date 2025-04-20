@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { cn } from "@/lib/utils";
@@ -9,10 +10,15 @@ import { useLocalStorage } from "usehooks-ts";
 const PLAYERS = [2, 3, 4] as const;
 
 export const Header = () => {
+  const [, setMonsters] = useLocalStorage("monsters", []);
   const [players, setPlayers] = useLocalStorage("players", 4);
 
   const handlePlayerChange = (value: string) => {
     setPlayers(+value);
+  };
+
+  const handleClearMonsters = () => {
+    setMonsters([]);
   };
 
   return (
@@ -53,6 +59,8 @@ export const Header = () => {
               ))}
             </RadioGroup>
           </div>
+
+          <Button onClick={handleClearMonsters}>Clear Monsters</Button>
         </div>
       </div>
     </header>
