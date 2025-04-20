@@ -29,12 +29,12 @@ import { useCallback, useRef } from "react";
 
 const formSchema = z.object({
   id: z.string().min(1, "Please select a monster"),
-  level: z.number().min(0).max(7),
   type: z.enum(["normal", "elite"]),
   quantity: z.number().min(1).max(8),
 });
 
 export const MonsterForm = () => {
+  const [level] = useLocalStorage<MonsterLevel>("level", 2);
   const [monsters, setMonsters] = useLocalStorage<Monster[]>("monsters", []);
   const generatedMontersIndexes = useRef<number[]>([]);
   // 1. Define your form.
@@ -42,7 +42,6 @@ export const MonsterForm = () => {
     resolver: zodResolver(formSchema),
     defaultValues: {
       id: "",
-      level: 2,
       type: "normal",
       quantity: 1,
     },
@@ -91,12 +90,12 @@ export const MonsterForm = () => {
           index,
           name: monster.name,
           image: monster.image,
-          level: values.level as MonsterLevel,
+          level,
           type: values.type,
-          health: monster[type].health[values.level],
-          movement: monster[type].movement[values.level],
-          attack: monster[type].attack[values.level],
-          skills: monster[type].skills[values.level],
+          health: monster[type].health[level],
+          movement: monster[type].movement[level],
+          attack: monster[type].attack[level],
+          skills: monster[type].skills[level],
         } satisfies Monster;
       }).filter((monster) => monster !== null) as Monster[];
 
@@ -131,40 +130,6 @@ export const MonsterForm = () => {
                     ))}
                   </SelectContent>
                 </Select>
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
-        <FormField
-          control={form.control}
-          name="level"
-          render={({ field }) => (
-            <FormItem className="pb-4">
-              <FormLabel className="text-2xl font-display">Level</FormLabel>
-              <FormControl>
-                <RadioGroup
-                  className="grid grid-cols-8 gap-1"
-                  value={`${field.value}`}
-                  onValueChange={(e) => field.onChange(+e)}
-                >
-                  {Array.from({ length: 8 }, (_, i) => i).map((level) => (
-                    <div key={level} className="flex items-center gap-2">
-                      <RadioGroupItem
-                        value={`${level}`}
-                        id={`level-${level}`}
-                        className="peer hidden"
-                      />
-                      <Label
-                        htmlFor={`level-${level}`}
-                        className="peer-aria-checked:bg-primary peer-aria-checked:text-foreground text-foreground/50 w-full rounded-sm py-2 text-center justify-center font-display text-base transition-colors duration-300 ease-in-out border"
-                      >
-                        {level}
-                      </Label>
-                    </div>
-                  ))}
-                </RadioGroup>
               </FormControl>
               <FormMessage />
             </FormItem>

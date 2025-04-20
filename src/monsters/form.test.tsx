@@ -27,7 +27,6 @@ describe("MonsterForm", () => {
   it("renders the form with default values", () => {
     render(<MonsterForm />);
     expect(screen.getByText("Monster")).toBeDefined();
-    expect(screen.getByText("Level")).toBeDefined();
     expect(screen.getByText("Type")).toBeDefined();
     expect(screen.getByText("Quantity")).toBeDefined();
     expect(screen.getByRole("button", { name: /create/i })).toBeDefined();
