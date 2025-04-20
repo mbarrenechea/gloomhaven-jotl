@@ -1,7 +1,9 @@
+import { useMonsters } from "@/lib/monsters";
 import { MonsterItem } from "@/monsters/list/item";
-import { Monster } from "@/monsters/types";
 
-export const MonsterList = ({ monsters }: { monsters: Monster[] }) => {
+export const MonsterList = () => {
+  const monsters = useMonsters();
+
   return (
     <section className="py-10">
       <div className="container">

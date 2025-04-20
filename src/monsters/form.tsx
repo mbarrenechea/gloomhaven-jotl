@@ -96,6 +96,7 @@ export const MonsterForm = () => {
           health: monster[type].health[values.level],
           movement: monster[type].movement[values.level],
           attack: monster[type].attack[values.level],
+          skills: monster[type].skills[values.level],
         } satisfies Monster;
       }).filter((monster) => monster !== null) as Monster[];
 

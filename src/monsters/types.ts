@@ -26,5 +26,5 @@ export type Monster = {
   health: number;
   movement: number;
   attack: number;
-  skills?: MonsterSkills[];
+  skills: Partial<Record<MonsterSkills, number>> | null;
 };
