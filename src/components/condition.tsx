@@ -10,7 +10,7 @@ export const Condition = ({
   className?: string;
 }) => {
   return (
-    <div className={`relative border border-amber-200 size-10 ${className}`}>
+    <div className={`relative border-2 border-foreground size-10 ${className}`}>
       <img
         src={`/conditions/${condition}.png`}
         alt={condition}
