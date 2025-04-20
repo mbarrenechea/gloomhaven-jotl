@@ -1,6 +1,8 @@
 import { Condition } from "@/components/condition";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { cn } from "@/lib/utils";
 import { Monster, MONSTER_CONDITIONS, MonsterCondition } from "@/monsters/types";
+import { LucidePlus } from "lucide-react";
 import { useLocalStorage } from "usehooks-ts";
 
 export const ConditionManager = (m: Monster) => {
@@ -33,16 +35,17 @@ export const ConditionManager = (m: Monster) => {
   };
 
   return (
-    <div className="z-30 relative w-full bottom-0 left-0 flex flex-col items-center justify-start h-14 bg-card border-2 border-b-0 p-0.5">
-      <ul className="flex items-center justify-start w-full gap-5 grow">
+    <div className="z-30 relative w-full bottom-0 left-0 flex flex-col items-center justify-start">
+      <ul className="inline-flex items-center justify-start gap-1 border-2 border-b-0 h-10 min-w-10">
+        {(!m.conditions || !Object.keys(m.conditions).length) && (
+          <li className="w-full flex items-center justify-center size-10">
+            <LucidePlus className="w-6 h-6 text-foreground" />
+          </li>
+        )}
         {!!m.conditions &&
           Object.entries(m.conditions).map(([condition, value]) => (
-            <li key={condition} className="flex items-center justify-start size-12">
-              <Condition
-                condition={condition as MonsterCondition}
-                value={value}
-                className="w-full h-full"
-              />
+            <li key={condition} className="flex w-full items-center justify-start size-10">
+              <Condition condition={condition as MonsterCondition} value={value} />
             </li>
           ))}
       </ul>
@@ -58,7 +61,9 @@ export const ConditionManager = (m: Monster) => {
                 <li key={condition}>
                   <button
                     type="button"
-                    className="flex items-center justify-start w-full"
+                    className={cn("flex items-center justify-start w-full", {
+                      "opacity-50": !!m.conditions && condition in m.conditions,
+                    })}
                     onClick={() => handleConditionChange(condition, 1)}
                   >
                     <Condition condition={condition} value={1} />

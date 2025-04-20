@@ -34,7 +34,7 @@ export const MonsterItem = (
     <div
       ref={ref}
       className={cn({
-        "relative bg-card w-full shadow-md p-4 pb-0 flex flex-col justify-between": true,
+        "relative bg-card w-full shadow-md p-4 pb-1 flex flex-col justify-between gap-4": true,
         "border border-t-4 border-amber-300": type === "elite",
         "border border-t-4 border-white": type === "normal",
         "border-red-400 h-full": boss,
