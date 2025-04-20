@@ -25,8 +25,8 @@ export const ClearMonsters = () => {
       <AlertDialogTrigger asChild>
         <Button
           size="icon"
-          variant="outline"
-          className="rounded-full w-10 h-10 pointer-events-auto"
+          variant="secondary"
+          className="rounded-full w-10 h-10 pointer-events-auto shadow-2xl"
         >
           <LucideTrash className="size-5" />
         </Button>

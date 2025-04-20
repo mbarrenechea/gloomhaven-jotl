@@ -118,7 +118,7 @@ export const MonsterForm = () => {
               <FormControl>
                 <Select value={field.value} onValueChange={field.onChange}>
                   <FormItem>
-                    <SelectTrigger className="w-full text-lg">
+                    <SelectTrigger className="w-full text-2xl">
                       <SelectValue placeholder="Select a monster" />
                     </SelectTrigger>
                   </FormItem>

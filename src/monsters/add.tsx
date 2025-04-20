@@ -16,7 +16,7 @@ export const AddMonster = () => {
         <Button
           size="icon"
           variant="default"
-          className="rounded-full w-16 h-16 pointer-events-auto"
+          className="rounded-full w-16 h-16 pointer-events-auto shadow-2xl"
         >
           <LucidePlus className="size-8" />
         </Button>

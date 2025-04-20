@@ -22,10 +22,10 @@ export const Header = () => {
   return (
     <header className="bg-card py-4 text-foreground">
       <div className="container">
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-4">
           <h1 className="font-display text-4xl">Gloomhaven</h1>
 
-          <div className="flex items-center gap-8">
+          <div className="flex flex-col lg:flex-row items-center gap-4 lg:gap-8">
             <div className="flex items-center gap-4">
               <Label
                 htmlFor="players"

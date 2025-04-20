@@ -9,7 +9,7 @@ function App() {
       <Header />
       <MonsterList />
 
-      <div className="fixed w-full bottom-10 pointer-events-none">
+      <div className="fixed z-40 w-full bottom-10 pointer-events-none">
         <div className="container flex items-end justify-end gap-3">
           <ClearMonsters />
           <AddMonster />
