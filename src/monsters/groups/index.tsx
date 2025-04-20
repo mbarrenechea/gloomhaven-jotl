@@ -1,9 +1,9 @@
-import { useMonsters } from "@/lib/monsters";
+import { useMonstersGroups } from "@/lib/monsters";
 import { Monster } from "@/monsters/types";
 import { MonsterGroupItem } from "./item";
 
 export const MonsterGroupList = () => {
-  const monstersGroups = useMonsters();
+  const monstersGroups = useMonstersGroups();
 
   return (
     <section className="py-10">

@@ -17,6 +17,7 @@ export type MonsterSkills =
 
 export type Monster = {
   id: string;
+  monsterId: string;
   name: string;
   image: string;
   index: number;

@@ -25,6 +25,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { useLocalStorage } from "usehooks-ts";
 import { Monster, MonsterLevel } from "./types";
+import { useCallback, useRef } from "react";
 
 const formSchema = z.object({
   id: z.string().min(1, "Please select a monster"),
@@ -34,7 +35,8 @@ const formSchema = z.object({
 });
 
 export const MonsterForm = () => {
-  const [, setMonsters] = useLocalStorage<Monster[]>("monsters", []);
+  const [monsters, setMonsters] = useLocalStorage<Monster[]>("monsters", []);
+  const generatedMontersIndexes = useRef<number[]>([]);
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -46,15 +48,47 @@ export const MonsterForm = () => {
     },
   });
 
+  const generateIndex = useCallback(
+    (id: Monster["id"]) => {
+      const index = Math.ceil(Math.random() * 6);
+      const activeMonstersIndexes = monsters
+        .filter((monster) => monster.monsterId === id)
+        .map((monster) => monster.index);
+
+      if (activeMonstersIndexes.length === 6) {
+        console.error("All indexes are taken");
+        return null;
+      }
+
+      if (
+        generatedMontersIndexes.current.includes(index) ||
+        activeMonstersIndexes.includes(index)
+      ) {
+        return generateIndex(id);
+      }
+
+      generatedMontersIndexes.current.push(index);
+
+      return index;
+    },
+    [monsters],
+  );
+
   function onSubmit(values: z.infer<typeof formSchema>) {
     const { id, type, quantity } = values;
     setMonsters((prev) => {
-      const arr = Array.from({ length: quantity }, (_, i) => {
+      const arr = Array.from({ length: quantity }, () => {
         const monster = MONSTERS.find((monster) => monster.id === id);
         if (!monster) return null;
+
+        const index = generateIndex(id);
+
+        if (!index) return null;
+
         return {
-          id,
-          index: i + 1,
+          id: id + index,
+          monsterId: id,
+          index,
           name: monster.name,
           image: monster.image,
           level: values.level as MonsterLevel,
@@ -64,6 +98,8 @@ export const MonsterForm = () => {
           attack: monster[type].attack[values.level],
         } satisfies Monster;
       }).filter((monster) => monster !== null) as Monster[];
+
+      generatedMontersIndexes.current = [];
 
       return [...prev, ...arr];
     });

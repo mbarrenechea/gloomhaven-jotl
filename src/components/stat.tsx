@@ -8,7 +8,7 @@ const statVariants = cva("font-display px-4 py-1 text-2xl flex items-center just
       default: "bg-accent",
       health: "text-red-400 fill-red-400",
       movement: "text-blue-400 fill-blue-800",
-      attack: "text-red-400 fill-red-900",
+      attack: "text-foreground fill-red-900",
     },
     size: {
       default: "text-xl",

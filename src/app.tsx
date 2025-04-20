@@ -1,13 +1,15 @@
 import { Header } from "@/header";
 import { AddMonster } from "./monsters/add";
-import { MonsterGroupList } from "./monsters/groups";
+import { MonsterList } from "@/monsters/list";
+import { useMonsters } from "@/lib/monsters";
 
 function App() {
+  const monsters = useMonsters();
   return (
     <main>
       <Header />
       <AddMonster />
-      <MonsterGroupList />
+      <MonsterList monsters={monsters} />
     </main>
   );
 }

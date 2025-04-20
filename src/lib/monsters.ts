@@ -7,7 +7,18 @@ import MONSTERS from "@/data/monsters.json";
 export const useMonsters = () => {
   const [monsters] = useLocalStorage<Monster[]>("monsters", []);
 
-  const MONSTERS_GROUP = groupBy<Monster>(monsters, ["id", "type", "level"]);
+  return monsters.sort((a, b) => {
+    if (a.monsterId === b.monsterId) {
+      return a.index - b.index;
+    }
+    return a.monsterId.localeCompare(b.monsterId);
+  });
+};
+
+export const useMonstersGroups = () => {
+  const [monsters] = useLocalStorage<Monster[]>("monsters", []);
+
+  const MONSTERS_GROUP = groupBy<Monster>(monsters, ["monsterId", "type", "level"]);
 
   return MONSTERS_GROUP;
 };
