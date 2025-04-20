@@ -1,3 +1,5 @@
+import { Layout } from "react-grid-layout";
+
 export type MonsterType = "normal" | "elite";
 
 export type MonsterLevel = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7;
@@ -32,6 +34,7 @@ export type Monster = {
   image: string;
   index: number;
   boss: boolean;
+  grid: Layout;
   level: MonsterLevel;
   type: MonsterType;
   health: number;

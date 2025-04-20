@@ -98,6 +98,13 @@ export const MonsterForm = () => {
           attack: monster[type].attack[level],
           skills: monster[type].skills[level],
           conditions: {},
+          grid: {
+            i: id + index,
+            x: 0,
+            y: 0,
+            w: monster.boss ? 2 : 1,
+            h: monster.boss ? 2 : 1,
+          },
         } satisfies Monster;
       }).filter((monster) => monster !== null) as Monster[];
 

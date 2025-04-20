@@ -1,25 +1,65 @@
 import { cn } from "@/lib/utils";
-import { ConditionManager } from "@/monsters/list/condition-manager";
-import { DeathManager } from "@/monsters/list/death-manager";
-import { HealthManager } from "@/monsters/list/health-manager";
-import { StatsManager } from "@/monsters/list/stats-manager";
+import { ConditionManager } from "@/monsters/list/managers/condition-manager";
+import { DeathManager } from "@/monsters/list/managers/death-manager";
+import { HealthManager } from "@/monsters/list/managers/health-manager";
+import { StatsManager } from "@/monsters/list/managers/stats-manager";
 import { Monster } from "@/monsters/types";
+import { useRef } from "react";
+import { useResizeObserver } from "usehooks-ts";
 
-export const MonsterItem = (monster: Monster) => {
-  const { image, type } = monster;
+type Size = {
+  width?: number;
+  height?: number;
+};
+
+export const MonsterItem = (
+  monster: Monster & {
+    onResize?: (measure: Size) => void;
+  },
+) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const { image, type, boss, onResize } = monster;
+
+  useResizeObserver({
+    // @ts-expect-error Docs say to use `ref` with null but it fails
+    ref,
+    box: "border-box",
+    onResize: (entry) => {
+      const { width, height } = entry;
+      if (onResize && !boss) onResize({ width, height: boss ? (height ?? 0) / 2 - 10 : height });
+    },
+  });
 
   return (
     <div
+      ref={ref}
       className={cn({
-        "relative bg-card w-full shadow-md p-4 pb-0 rounded-lg overflow-hidden": true,
-        "border-2 border-amber-300": type === "elite",
-        "border-2 border-white": type === "normal",
+        "relative bg-card w-full shadow-md p-4 pb-0 flex flex-col justify-between": true,
+        "border border-t-4 border-amber-300": type === "elite",
+        "border border-t-4 border-white": type === "normal",
+        "border-red-400 h-full": boss,
       })}
     >
-      <div className="w-full h-full aspect-square rounded-full overflow-hidden">
+      <div className="w-full aspect-square rounded-full overflow-hidden">
         <img src={image} alt={type} className="w-full object-cover" />
       </div>
+
       <ConditionManager {...monster} />
+
+      <button
+        type="button"
+        className={cn(
+          "draggable-handle absolute top-0 left-1/2 -translate-1/2 z-40 h-5 w-10 rounded-sm flex flex-col items-center justify-center gap-1",
+          {
+            "bg-foreground": type === "normal",
+            "bg-amber-300": type === "elite",
+            "bg-red-400": boss,
+          },
+        )}
+      >
+        <span className="w-1/2 h-px bg-accent"></span>
+        <span className="w-1/2 h-px bg-accent"></span>
+      </button>
 
       <DeathManager {...monster} />
       <StatsManager {...monster} />

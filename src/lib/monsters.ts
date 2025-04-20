@@ -9,7 +9,7 @@ export const useMonsters = () => {
 
   return monsters.sort((a, b) => {
     if (a.monsterId === b.monsterId) {
-      return a.index - b.index;
+      return b.index - a.index;
     }
     return a.monsterId.localeCompare(b.monsterId);
   });

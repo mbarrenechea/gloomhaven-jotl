@@ -21,8 +21,9 @@ export const StatsManager = (m: Monster) => {
         <Stat variant="default" size="default">
           {index}
         </Stat>
+
         {Object.entries(skills ?? {}).map(([key, value]) => (
-          <Condition condition={key as MonsterSkills} value={value} />
+          <Condition key={key} condition={key as MonsterSkills} value={value} />
         ))}
       </div>
     </div>
