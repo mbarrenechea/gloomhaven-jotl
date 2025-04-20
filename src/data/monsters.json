@@ -3,6 +3,7 @@
     "id": "zealot",
     "name": "Fanático",
     "image": "/monsters/zealot.png",
+    "boss": false,
     "normal": {
       "health": [4, 6, 7, 8, 10, 12, 14, 16],
       "movement": [2, 2, 3, 3, 3, 4, 4, 4],
@@ -38,6 +39,7 @@
     "id": "vermling-raider",
     "name": "Asaltante infestor",
     "image": "/monsters/vermling-raider.png",
+    "boss": false,
     "normal": {
       "health": [4, 5, 9, 11, 12, 15, 17, 19],
       "movement": [1, 1, 2, 3, 3, 3, 4, 4],
@@ -55,6 +57,7 @@
     "id": "stone-golem",
     "name": "Golem de piedra",
     "image": "/monsters/stone-golem.png",
+    "boss": false,
     "normal": {
       "health": [10, 10, 11, 11, 12, 13, 16, 16],
       "movement": [1, 1, 1, 1, 2, 2, 2, 2],

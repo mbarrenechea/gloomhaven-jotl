@@ -38,7 +38,7 @@ export const HealthManager = (m: Monster) => {
     <div className="absolute z-10 w-full h-full top-0 left-0 flex flex-col items-center justify-center">
       <button
         type="button"
-        className="grow w-full bg-transparent from-background/50 to-transparent active:bg-gradient-to-b"
+        className="w-full bg-transparent from-background/50 to-transparent active:bg-gradient-to-b h-1/3"
         onClick={() => handleHealthChange(1)}
       />
       <button

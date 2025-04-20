@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { ConditionManager } from "@/monsters/list/condition-manager";
 import { DeathManager } from "@/monsters/list/death-manager";
 import { HealthManager } from "@/monsters/list/health-manager";
 import { StatsManager } from "@/monsters/list/stats-manager";
@@ -18,8 +19,7 @@ export const MonsterItem = (monster: Monster) => {
       <div className="w-full h-full aspect-square rounded-full overflow-hidden">
         <img src={image} alt={type} className="w-full object-cover" />
       </div>
-
-      <div className="z-30 relative w-full bottom-0 left-0 flex items-center justify-start pointer-events-none h-10 bg-card border-2 border-b-0"></div>
+      <ConditionManager {...monster} />
 
       <DeathManager {...monster} />
       <StatsManager {...monster} />
