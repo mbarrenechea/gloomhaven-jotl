@@ -1,41 +1,5 @@
 [
   {
-    "id": "zealot",
-    "name": "Fanático",
-    "image": "/monsters/zealot.png",
-    "boss": false,
-    "normal": {
-      "health": [4, 6, 7, 8, 10, 12, 14, 16],
-      "movement": [2, 2, 3, 3, 3, 4, 4, 4],
-      "attack": [2, 2, 3, 3, 3, 3, 4, 5],
-      "skills": [
-        null,
-        null,
-        null,
-        { "wound": 1 },
-        { "wound": 1 },
-        { "wound": 1 },
-        { "wound": 1 },
-        { "wound": 1 }
-      ]
-    },
-    "elite": {
-      "health": [7, 8, 11, 13, 17, 18, 22, 26],
-      "movement": [2, 2, 3, 3, 3, 4, 4, 4],
-      "attack": [3, 3, 3, 4, 4, 5, 6, 7],
-      "skills": [
-        null,
-        { "wound": 1 },
-        { "wound": 1 },
-        { "wound": 1 },
-        { "wound": 1 },
-        { "wound": 1 },
-        { "wound": 1 },
-        { "wound": 1 }
-      ]
-    }
-  },
-  {
     "id": "black-imp",
     "name": "Black imp",
     "image": "/monsters/black-imp.png",
@@ -402,6 +366,60 @@
       "movement": [2, 2, 3, 3, 3, 4, 4, 4],
       "attack": [3, 3, 3, 4, 4, 5, 6, 7],
       "skills": [null, null, null, null, null, null, null, null]
+    }
+  },
+  {
+    "id": "vermling-scout",
+    "name": "Vermling scout",
+    "image": "/monsters/vermling-scout.png",
+    "boss": false,
+    "normal": {
+      "health": [2, 3, 3, 5, 6, 8, 10, 13],
+      "movement": [3, 3, 3, 3, 3, 3, 4, 4],
+      "attack": [2, 2, 3, 3, 3, 3, 3, 3],
+      "skills": [null, null, null, null, null, null, null, null]
+    },
+    "elite": {
+      "health": [4, 5, 5, 7, 8, 11, 13, 17],
+      "movement": [3, 3, 4, 4, 4, 4, 5, 5],
+      "attack": [2, 2, 3, 3, 4, 4, 4, 4],
+      "skills": [null, null, null, null, null, null, null, null]
+    }
+  },
+  {
+    "id": "zealot",
+    "name": "Fanático",
+    "image": "/monsters/zealot.png",
+    "boss": false,
+    "normal": {
+      "health": [4, 6, 7, 8, 10, 12, 14, 16],
+      "movement": [2, 2, 3, 3, 3, 4, 4, 4],
+      "attack": [2, 2, 3, 3, 3, 3, 4, 5],
+      "skills": [
+        null,
+        null,
+        null,
+        { "wound": 1 },
+        { "wound": 1 },
+        { "wound": 1 },
+        { "wound": 1 },
+        { "wound": 1 }
+      ]
+    },
+    "elite": {
+      "health": [7, 8, 11, 13, 17, 18, 22, 26],
+      "movement": [2, 2, 3, 3, 3, 4, 4, 4],
+      "attack": [3, 3, 3, 4, 4, 5, 6, 7],
+      "skills": [
+        null,
+        { "wound": 1 },
+        { "wound": 1 },
+        { "wound": 1 },
+        { "wound": 1 },
+        { "wound": 1 },
+        { "wound": 1 },
+        { "wound": 1 }
+      ]
     }
   }
 ]
