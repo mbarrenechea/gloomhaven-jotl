@@ -270,6 +270,33 @@
     }
   },
   {
+    "id": "living-corpse",
+    "name": "Living corpse",
+    "image": "/monsters/living-corpse.png",
+    "boss": false,
+    "normal": {
+      "health": [5, 7, 9, 10, 11, 13, 14, 16],
+      "movement": [1, 1, 1, 1, 2, 2, 2, 2],
+      "attack": [3, 3, 3, 4, 4, 4, 4, 5],
+      "skills": [null, null, null, null, null, null, { "poison": 1 }, { "poison": 1 }]
+    },
+    "elite": {
+      "health": [10, 11, 14, 14, 16, 18, 23, 29],
+      "movement": [1, 1, 1, 2, 2, 2, 2, 2],
+      "attack": [3, 4, 4, 5, 5, 6, 6, 6],
+      "skills": [
+        null,
+        null,
+        null,
+        null,
+        { "poison": 1 },
+        { "poison": 1 },
+        { "poison": 1 },
+        { "poison": 1 }
+      ]
+    }
+  },
+  {
     "id": "stone-golem",
     "name": "Golem de piedra",
     "image": "/monsters/stone-golem.png",
