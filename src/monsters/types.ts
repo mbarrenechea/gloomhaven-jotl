@@ -15,7 +15,10 @@ export type MonsterSkills =
   | "pull"
   | "heal"
   | "shield"
-  | "retaliate";
+  | "retaliate"
+  | "death"
+  | "disadvantage"
+  | "muddle";
 
 export const MONSTER_CONDITIONS = [
   "poison",
@@ -24,6 +27,7 @@ export const MONSTER_CONDITIONS = [
   "stun",
   "curse",
   "disarm",
+  "muddle",
 ] as const;
 export type MonsterCondition = (typeof MONSTER_CONDITIONS)[number];
 
