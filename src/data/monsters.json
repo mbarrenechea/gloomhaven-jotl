@@ -54,6 +54,78 @@
     }
   },
   {
+    "id": "black-imp",
+    "name": "Black imp",
+    "image": "/monsters/black-imp.png",
+    "boss": false,
+    "normal": {
+      "health": [3, 4, 5, 5, 7, 9, 10, 13],
+      "movement": [1, 1, 1, 1, 1, 1, 1, 1],
+      "attack": [1, 1, 1, 2, 2, 2, 3, 3],
+      "skills": [
+        null,
+        { "poison": 1 },
+        { "poison": 1 },
+        { "poison": 1 },
+        { "poison": 1 },
+        { "poison": 1 },
+        { "poison": 1 },
+        { "poison": 1 }
+      ]
+    },
+    "elite": {
+      "health": [4, 6, 8, 8, 11, 14, 15, 19],
+      "movement": [1, 1, 1, 1, 1, 1, 1, 1],
+      "attack": [2, 2, 2, 3, 3, 3, 4, 4],
+      "skills": [
+        { "poison": 1 },
+        { "poison": 1 },
+        { "poison": 1 },
+        { "poison": 1, "disadvantage": 1 },
+        { "poison": 1, "disadvantage": 1 },
+        { "poison": 1, "disadvantage": 1 },
+        { "poison": 1, "disadvantage": 1 },
+        { "poison": 1, "disadvantage": 1 }
+      ]
+    }
+  },
+  {
+    "id": "black-sludge",
+    "name": "Black sludge",
+    "image": "/monsters/black-sludge.png",
+    "boss": false,
+    "normal": {
+      "health": [4, 5, 7, 8, 9, 10, 12, 16],
+      "movement": [1, 1, 1, 1, 2, 2, 2, 2],
+      "attack": [2, 2, 2, 3, 3, 3, 4, 4],
+      "skills": [
+        null,
+        { "shield": 1 },
+        { "shield": 1 },
+        { "shield": 1 },
+        { "shield": 1 },
+        { "shield": 1, "poison": 1 },
+        { "shield": 1, "poison": 1 },
+        { "shield": 1, "poison": 1 }
+      ]
+    },
+    "elite": {
+      "health": [8, 9, 11, 11, 13, 15, 16, 18],
+      "movement": [1, 1, 1, 2, 2, 3, 3, 3],
+      "attack": [2, 2, 3, 3, 4, 4, 4, 5],
+      "skills": [
+        null,
+        { "shield": 1 },
+        { "shield": 1 },
+        { "shield": 1, "poison": 1 },
+        { "shield": 1, "poison": 1 },
+        { "shield": 1, "poison": 1 },
+        { "shield": 2, "poison": 1 },
+        { "shield": 2, "poison": 1 }
+      ]
+    }
+  },
+  {
     "id": "stone-golem",
     "name": "Golem de piedra",
     "image": "/monsters/stone-golem.png",
