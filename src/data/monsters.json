@@ -234,6 +234,42 @@
     }
   },
   {
+    "id": "giant-viper",
+    "name": "Giant viper",
+    "image": "/monsters/giant-viper.png",
+    "boss": false,
+    "normal": {
+      "health": [2, 3, 4, 4, 6, 7, 8, 10],
+      "movement": [2, 2, 3, 3, 3, 3, 4, 4],
+      "attack": [1, 1, 1, 2, 2, 3, 3, 3],
+      "skills": [
+        { "poison": 1 },
+        { "poison": 1 },
+        { "poison": 1 },
+        { "poison": 1 },
+        { "poison": 1 },
+        { "poison": 1 },
+        { "poison": 1 },
+        { "poison": 1 }
+      ]
+    },
+    "elite": {
+      "health": [3, 5, 7, 8, 11, 13, 14, 18],
+      "movement": [2, 2, 3, 3, 3, 4, 4, 4],
+      "attack": [2, 2, 2, 3, 3, 3, 4, 4],
+      "skills": [
+        { "poison": 1 },
+        { "poison": 1 },
+        { "poison": 1 },
+        { "poison": 1 },
+        { "poison": 1 },
+        { "poison": 1 },
+        { "poison": 1 },
+        { "poison": 1 }
+      ]
+    }
+  },
+  {
     "id": "stone-golem",
     "name": "Golem de piedra",
     "image": "/monsters/stone-golem.png",
