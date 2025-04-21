@@ -15,6 +15,7 @@ import {
 import {
   Select,
   SelectContent,
+  SelectGroup,
   SelectItem,
   SelectTrigger,
   SelectValue,
@@ -132,11 +133,14 @@ export const MonsterForm = () => {
                     </SelectTrigger>
                   </FormItem>
                   <SelectContent>
+                    <SelectGroup>Monsters</SelectGroup>
                     {MONSTERS.map((monster) => (
                       <SelectItem key={monster.id} value={monster.id}>
                         {monster.name}
                       </SelectItem>
                     ))}
+
+                    <SelectGroup>Bosses</SelectGroup>
                   </SelectContent>
                 </Select>
               </FormControl>

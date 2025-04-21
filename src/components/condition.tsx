@@ -10,7 +10,7 @@ export const Condition = ({
   className?: string;
 }) => {
   return (
-    <div className={`relative border-2 border-foreground size-10 ${className}`}>
+    <div className={`relative p-1 bg-foreground size-10 ${className}`}>
       <img
         src={`/conditions/${condition}.png`}
         alt={condition}
@@ -18,7 +18,7 @@ export const Condition = ({
       />
 
       {value > 1 && (
-        <span className="absolute w-1/2 h-full right-full top-0 flex items-center justify-center text-base font-bold font-display text-white bg-accent">
+        <span className="absolute w-1/2 h-full right-full top-0 flex items-center justify-center text-2xl font-bold font-display text-background bg-foreground">
           {value}
         </span>
       )}

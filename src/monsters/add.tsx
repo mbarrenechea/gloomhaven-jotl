@@ -8,19 +8,30 @@ import {
 } from "@/components/ui/sheet";
 import { LucidePlus } from "lucide-react";
 import { MonsterForm } from "./form";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 
 export const AddMonster = () => {
   return (
     <Sheet>
-      <SheetTrigger asChild>
-        <Button
-          size="icon"
-          variant="default"
-          className="rounded-full w-16 h-16 pointer-events-auto shadow-2xl"
-        >
-          <LucidePlus className="size-8" />
-        </Button>
-      </SheetTrigger>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <SheetTrigger asChild>
+            <Button
+              size="icon"
+              variant="default"
+              className="rounded-full w-16 h-16 pointer-events-auto shadow-2xl"
+            >
+              <LucidePlus className="size-8" />
+            </Button>
+          </SheetTrigger>
+        </TooltipTrigger>
+
+        <TooltipContent>
+          <div className="flex flex-col items-center justify-center">
+            <span className="text-2xl">Add new monster</span>
+          </div>
+        </TooltipContent>
+      </Tooltip>
 
       <SheetContent className="p-8 bg-sidebar">
         <SheetTitle className="text-2xl font-display sr-only">Add new monsters</SheetTitle>

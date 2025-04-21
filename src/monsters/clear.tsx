@@ -10,6 +10,7 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { LucideTrash } from "lucide-react";
 import { useLocalStorage } from "usehooks-ts";
 
@@ -22,15 +23,25 @@ export const ClearMonsters = () => {
 
   return (
     <AlertDialog>
-      <AlertDialogTrigger asChild>
-        <Button
-          size="icon"
-          variant="secondary"
-          className="rounded-full w-10 h-10 pointer-events-auto shadow-2xl"
-        >
-          <LucideTrash className="size-5" />
-        </Button>
-      </AlertDialogTrigger>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <AlertDialogTrigger asChild>
+            <Button
+              size="icon"
+              variant="secondary"
+              className="rounded-full w-10 h-10 pointer-events-auto shadow-2xl"
+            >
+              <LucideTrash className="size-5" />
+            </Button>
+          </AlertDialogTrigger>
+        </TooltipTrigger>
+
+        <TooltipContent>
+          <div className="flex flex-col items-center justify-center">
+            <span className="text-2xl">Clear all monsters</span>
+          </div>
+        </TooltipContent>
+      </Tooltip>
 
       <AlertDialogContent>
         <AlertDialogHeader>

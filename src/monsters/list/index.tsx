@@ -22,8 +22,6 @@ export const MonsterList = () => {
     setRowHeight(size.height || 10);
   }, []);
 
-  console.log(rowHeight);
-
   const ITEMS = useMemo(() => {
     return monsters.map((monster) => (
       <li key={`${monster.id}`} className="relative list-none" data-grid={monster.grid}>

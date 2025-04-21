@@ -25,7 +25,6 @@ export const MONSTER_CONDITIONS = [
   "wound",
   "immobilize",
   "stun",
-  "curse",
   "disarm",
   "muddle",
 ] as const;
