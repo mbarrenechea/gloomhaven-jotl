@@ -26,15 +26,20 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { useLocalStorage } from "usehooks-ts";
 import { Monster, MonsterLevel } from "./types";
-import { useCallback, useRef } from "react";
+import { useCallback, useEffect, useMemo, useRef } from "react";
+
+import { createParser } from "@adifkz/exp-p";
+
+const parser = createParser();
 
 const formSchema = z.object({
   id: z.string().min(1, "Please select a monster"),
-  type: z.enum(["normal", "elite"]),
+  type: z.enum(["normal", "elite", "boss"]),
   quantity: z.number().min(1).max(8),
 });
 
 export const MonsterForm = () => {
+  const [players] = useLocalStorage("players", 4);
   const [level] = useLocalStorage<MonsterLevel>("level", 2);
   const [monsters, setMonsters] = useLocalStorage<Monster[]>("monsters", []);
   const generatedMontersIndexes = useRef<number[]>([]);
@@ -47,6 +52,22 @@ export const MonsterForm = () => {
       quantity: 1,
     },
   });
+
+  const id = form.watch("id");
+
+  const MONSTER = useMemo(() => {
+    const monster = MONSTERS.find((monster) => monster.id === id);
+    if (!monster) return null;
+
+    return monster;
+  }, [id]);
+
+  useEffect(() => {
+    if (MONSTER?.boss) {
+      form.setValue("type", "boss");
+      form.setValue("quantity", 1);
+    }
+  }, [MONSTER, form]);
 
   const generateIndex = useCallback(
     (id: Monster["id"]) => {
@@ -74,14 +95,61 @@ export const MonsterForm = () => {
     [monsters],
   );
 
+  const generateHealth = useCallback(
+    (id: Monster["id"], type: Monster["type"]) => {
+      const monster = MONSTERS.find((monster) => monster.id === id);
+      if (!monster) return null;
+
+      const stats = monster[type];
+      if (!stats) return null;
+
+      const health = stats.health[level];
+      if (typeof health === "string") {
+        const h = parser.evaluate(health, {
+          p: players,
+        });
+
+        return h as number;
+      }
+
+      return health;
+    },
+    [level, players],
+  );
+
+  const generateAttack = useCallback(
+    (id: Monster["id"], type: Monster["type"]) => {
+      const monster = MONSTERS.find((monster) => monster.id === id);
+      if (!monster) return null;
+
+      const stats = monster[type];
+      if (!stats) return null;
+
+      const attack = stats.attack[level];
+      if (typeof attack === "string") {
+        const a = parser.evaluate(attack, {
+          p: players,
+        });
+
+        return a as number;
+      }
+
+      return attack;
+    },
+    [level, players],
+  );
+
   function onSubmit(values: z.infer<typeof formSchema>) {
     const { id, type, quantity } = values;
+
     setMonsters((prev) => {
       const arr = Array.from({ length: quantity }, () => {
         const monster = MONSTERS.find((monster) => monster.id === id);
         if (!monster) return null;
 
         const index = generateIndex(id);
+        const health = generateHealth(id, type);
+        const attack = generateAttack(id, type);
 
         if (!index) return null;
 
@@ -92,19 +160,18 @@ export const MonsterForm = () => {
           name: monster.name,
           image: monster.image,
           level,
-          boss: !!monster.boss,
           type: values.type,
-          health: monster[type].health[level],
-          movement: monster[type].movement[level],
-          attack: monster[type].attack[level],
-          skills: monster[type].skills[level],
+          health: health || 0,
+          movement: monster[type]?.movement[level] || 0,
+          attack: attack || 0,
+          skills: monster[type]?.skills[level] || {},
           conditions: {},
           grid: {
             i: id + index,
             x: 0,
             y: 0,
-            w: monster.boss ? 2 : 1,
-            h: monster.boss ? 2 : 1,
+            w: values.type === "boss" ? 2 : 1,
+            h: values.type === "boss" ? 2 : 1,
           },
         } satisfies Monster;
       }).filter((monster) => monster !== null) as Monster[];
@@ -116,6 +183,7 @@ export const MonsterForm = () => {
 
     form.reset();
   }
+
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 divide-accent divide-y">
@@ -134,13 +202,18 @@ export const MonsterForm = () => {
                   </FormItem>
                   <SelectContent>
                     <SelectGroup>Monsters</SelectGroup>
-                    {MONSTERS.map((monster) => (
+                    {MONSTERS.filter((m) => "normal" in m).map((monster) => (
                       <SelectItem key={monster.id} value={monster.id}>
                         {monster.name}
                       </SelectItem>
                     ))}
 
                     <SelectGroup>Bosses</SelectGroup>
+                    {MONSTERS.filter((m) => "boss" in m).map((monster) => (
+                      <SelectItem key={monster.id} value={monster.id}>
+                        {monster.name}
+                      </SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
               </FormControl>
@@ -163,7 +236,12 @@ export const MonsterForm = () => {
                   onValueChange={field.onChange}
                 >
                   <div className="flex items-center gap-1 w-full">
-                    <RadioGroupItem value="normal" id="normal" className="peer hidden" />
+                    <RadioGroupItem
+                      value="normal"
+                      id="normal"
+                      className="peer hidden"
+                      disabled={!!MONSTER?.boss}
+                    />
                     <Label
                       htmlFor="normal"
                       className="peer-aria-checked:bg-primary peer-aria-checked:text-foreground text-foreground/50 w-full rounded-sm py-2 px-4 text-center justify-center font-sans text-lg transition-colors duration-300 ease-in-out border"
@@ -172,12 +250,31 @@ export const MonsterForm = () => {
                     </Label>
                   </div>
                   <div className="flex items-center gap-1 w-full">
-                    <RadioGroupItem value="elite" id="elite" className="peer hidden" />
+                    <RadioGroupItem
+                      value="elite"
+                      id="elite"
+                      className="peer hidden"
+                      disabled={!!MONSTER?.boss}
+                    />
                     <Label
                       htmlFor="elite"
                       className="peer-aria-checked:bg-primary peer-aria-checked:text-foreground text-foreground/50 w-full rounded-sm py-2 px-4 text-center justify-center font-sans text-lg transition-colors duration-300 ease-in-out border"
                     >
                       Elite
+                    </Label>
+                  </div>
+                  <div className="flex items-center gap-1 w-full">
+                    <RadioGroupItem
+                      value="boss"
+                      id="boss"
+                      className="peer hidden"
+                      disabled={!MONSTER?.boss}
+                    />
+                    <Label
+                      htmlFor="boss"
+                      className="peer-aria-checked:bg-primary peer-aria-checked:text-foreground text-foreground/50 w-full rounded-sm py-2 px-4 text-center justify-center font-sans text-lg transition-colors duration-300 ease-in-out border"
+                    >
+                      Boss
                     </Label>
                   </div>
                 </RadioGroup>
@@ -205,6 +302,7 @@ export const MonsterForm = () => {
                         value={`${quantity}`}
                         id={`quantity-${quantity}`}
                         className="peer hidden"
+                        disabled={!!MONSTER?.boss && quantity > 1}
                       />
                       <Label
                         htmlFor={`quantity-${quantity}`}

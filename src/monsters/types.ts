@@ -1,6 +1,6 @@
 import { Layout } from "react-grid-layout";
 
-export type MonsterType = "normal" | "elite";
+export type MonsterType = "normal" | "elite" | "boss";
 
 export type MonsterLevel = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7;
 
@@ -36,12 +36,11 @@ export type Monster = {
   name: string;
   image: string;
   index: number;
-  boss: boolean;
   grid: Layout;
   level: MonsterLevel;
   type: MonsterType;
   health: number;
-  movement: number;
+  movement: string | number;
   attack: number;
   skills: Partial<Record<MonsterSkills, number>> | null;
   conditions: Partial<Record<MonsterCondition, number>> | null;

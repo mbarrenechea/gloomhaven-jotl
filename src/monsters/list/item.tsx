@@ -18,7 +18,7 @@ export const MonsterItem = (
   },
 ) => {
   const ref = useRef<HTMLDivElement>(null);
-  const { image, type, boss, onResize } = monster;
+  const { image, type, onResize } = monster;
 
   useResizeObserver({
     // @ts-expect-error Docs say to use `ref` with null but it fails
@@ -26,7 +26,7 @@ export const MonsterItem = (
     box: "border-box",
     onResize: (entry) => {
       const { width, height } = entry;
-      if (onResize && !boss) onResize({ width, height: boss ? (height ?? 0) / 2 - 10 : height });
+      if (onResize && type !== "boss") onResize({ width, height });
     },
   });
 
@@ -37,7 +37,7 @@ export const MonsterItem = (
         "relative bg-card w-full shadow-md p-4 pb-1 flex flex-col justify-between gap-4": true,
         "border border-t-4 border-amber-300": type === "elite",
         "border border-t-4 border-white": type === "normal",
-        "border-red-400 h-full": boss,
+        "border border-t-4 border-red-400 h-full": type === "boss",
       })}
     >
       <div className="w-full aspect-square rounded-full overflow-hidden">
@@ -53,7 +53,7 @@ export const MonsterItem = (
           {
             "bg-foreground": type === "normal",
             "bg-amber-300": type === "elite",
-            "bg-red-400": boss,
+            "bg-red-400": type === "boss",
           },
         )}
       >

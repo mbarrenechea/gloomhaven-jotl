@@ -13,6 +13,7 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@adifkz/exp-p": "^1.0.29",
     "@hookform/resolvers": "^5.0.1",
     "@radix-ui/react-alert-dialog": "^1.1.10",
     "@radix-ui/react-dialog": "^1.1.7",

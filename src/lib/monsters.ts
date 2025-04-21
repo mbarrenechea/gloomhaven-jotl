@@ -33,6 +33,8 @@ export const useMonsterStats = (
 
   const stats = monster[type];
 
+  if (!stats) return null;
+
   return {
     name: monster.name,
     health: stats.health[level],

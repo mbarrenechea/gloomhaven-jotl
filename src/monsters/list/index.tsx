@@ -12,7 +12,7 @@ type Size = {
 };
 
 export const MonsterList = () => {
-  const [rowHeight, setRowHeight] = useState(0);
+  const [rowHeight, setRowHeight] = useState(282);
   const [, setMonsters] = useLocalStorage<Monster[]>("monsters", []);
   const monsters = useMonsters();
 

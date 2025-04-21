@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@adifkz/exp-p':
+        specifier: ^1.0.29
+        version: 1.0.29
       '@hookform/resolvers':
         specifier: ^5.0.1
         version: 5.0.1(react-hook-form@7.55.0(react@19.1.0))
@@ -149,6 +152,9 @@ importers:
         version: 3.1.1(@types/node@22.14.1)(jiti@2.4.2)(jsdom@26.1.0)(lightningcss@1.29.2)
 
 packages:
+
+  '@adifkz/exp-p@1.0.29':
+    resolution: {integrity: sha512-4KkOajwvqC4kA1QJF1qW6icaRGBVIAFHFAr75ngqYjrIxCeQNtZubZbFXRIzeigWem/sZERTp4y3PTs3TgEKSw==}
 
   '@ampproject/remapping@2.3.0':
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
@@ -1901,6 +1907,9 @@ packages:
     resolution: {integrity: sha512-G6T0ZX48xgozx7587koeX9Ys2NYy6Gmv//P89sEte9V9whIapMNF4idKxnW2QtCcLiTWlb/wfCabAtAFWhhBow==}
     engines: {node: '>=16 || 14 >=14.17'}
 
+  moment@2.30.1:
+    resolution: {integrity: sha512-uEmtNhbDOrWPFS+hdjFCBfy9f2YoyzRpwcl+DqpC6taX21FzsTLQVbMV/W7PzNSX6x/bhC1zA3c2UQ5NzH6how==}
+
   ms@2.1.3:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
 
@@ -2477,6 +2486,10 @@ packages:
     resolution: {integrity: sha512-HhY1oqzWCQWuUqvBFnsyrtZRhyPeR7SUGv+C4+MsisMuVfSPx8HpwWqH8tRahSlt6M3PiFAcoeFhZAqIXTxoSg==}
 
 snapshots:
+
+  '@adifkz/exp-p@1.0.29':
+    dependencies:
+      moment: 2.30.1
 
   '@ampproject/remapping@2.3.0':
     dependencies:
@@ -4126,6 +4139,8 @@ snapshots:
   minimatch@9.0.5:
     dependencies:
       brace-expansion: 2.0.1
+
+  moment@2.30.1: {}
 
   ms@2.1.3: {}
 
