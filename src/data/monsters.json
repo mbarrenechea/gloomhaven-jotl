@@ -126,6 +126,78 @@
     }
   },
   {
+    "id": "blood-imp",
+    "name": "Blood imp",
+    "image": "/monsters/blood-imp.png",
+    "boss": false,
+    "normal": {
+      "health": [3, 4, 5, 5, 7, 8, 9, 12],
+      "movement": [2, 2, 3, 3, 3, 4, 4, 4],
+      "attack": [1, 1, 1, 2, 2, 2, 3, 3],
+      "skills": [
+        null,
+        { "muddle": 1 },
+        { "muddle": 1 },
+        { "muddle": 1 },
+        { "muddle": 1 },
+        { "muddle": 1 },
+        { "muddle": 1 },
+        { "muddle": 1 }
+      ]
+    },
+    "elite": {
+      "health": [4, 6, 7, 10, 11, 13, 17, 21],
+      "movement": [2, 2, 3, 3, 3, 4, 4, 4],
+      "attack": [2, 2, 2, 2, 3, 3, 3, 4],
+      "skills": [
+        { "muddle": 1 },
+        { "muddle": 1 },
+        { "muddle": 1 },
+        { "muddle": 1 },
+        { "muddle": 1 },
+        { "muddle": 1 },
+        { "muddle": 1 },
+        { "muddle": 1 }
+      ]
+    }
+  },
+  {
+    "id": "blood-monstrosity",
+    "name": "Blood monstrosity",
+    "image": "/monsters/blood-monstrosity.png",
+    "boss": false,
+    "normal": {
+      "health": [7, 9, 10, 12, 12, 13, 17, 20],
+      "movement": [2, 2, 2, 3, 3, 3, 3, 3],
+      "attack": [2, 2, 3, 3, 3, 4, 4, 5],
+      "skills": [
+        { "death": 1 },
+        { "death": 2 },
+        { "death": 2 },
+        { "death": 3 },
+        { "death": 3 },
+        { "death": 3 },
+        { "death": 3 },
+        { "death": 4 }
+      ]
+    },
+    "elite": {
+      "health": [12, 12, 15, 18, 18, 20, 23, 23],
+      "movement": [2, 2, 2, 3, 3, 3, 3, 3],
+      "attack": [3, 3, 4, 4, 4, 5, 6, 6],
+      "skills": [
+        { "death": 1 },
+        { "death": 3, "shield": 1 },
+        { "death": 3, "shield": 1 },
+        { "death": 4, "shield": 1 },
+        { "death": 4, "shield": 2 },
+        { "death": 5, "shield": 2 },
+        { "death": 5, "shield": 2 },
+        { "death": 5, "shield": 3 }
+      ]
+    }
+  },
+  {
     "id": "stone-golem",
     "name": "Golem de piedra",
     "image": "/monsters/stone-golem.png",
