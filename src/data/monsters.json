@@ -417,7 +417,18 @@
       "health": ["7*p", "10*p", "12*p", "15*p", "17*p", "20*p", "23*p", "28*p"],
       "movement": ["-", "-", "-", "-", "-", "-", "-", "-"],
       "attack": ["p-1", "p", "p", "p+1", "p+1", "p+2", "p+2", "p+3"],
-      "skills": [null, null, null, null, null, null, null, null]
+      "skills": [null, null, null, null, null, null, null, null],
+      "inmunities": ["disarm", "muddle", "stun"],
+      "special": [
+        ["Heal P self", "Heal 2 Target all allies"],
+        ["Heal P self", "Heal 2 Target all allies"],
+        ["Heal P + 1 self", "Heal 3 Target all allies"],
+        ["Heal P + 1 self", "Heal 3 Target all allies"],
+        ["Heal P + 2 self", "Heal 4 Target all allies"],
+        ["Heal P + 2 self", "Heal 4 Target all allies"],
+        ["Heal P + 3 self", "Heal 5 Target all allies"],
+        ["Heal P + 3 self", "Heal 5 Target all allies"]
+      ]
     }
   },
   {
@@ -428,7 +439,42 @@
       "health": ["7*p", "10*p", "12*p", "15*p", "17*p", "20*p", "23*p", "28*p"],
       "movement": [3, 3, 4, 4, 5, 5, 5, 5],
       "attack": ["p-1", "p", "p", "p+1", "p+1", "p+2", "p+3", "p+4"],
-      "skills": [null, null, null, null, null, null, null, null]
+      "skills": [null, null, null, null, null, null, null, null],
+      "inmunities": ["disarm", "muddle", "stun", "immobilize"],
+      "special": [
+        [
+          "Jump to farthest dead Zealot and revive or jump to farthest character and attack+0",
+          "Move+0, Attack+0 Revive all dead zealot in room "
+        ],
+        [
+          "Jump to farthest dead Zealot and revive or jump to farthest character and attack+0",
+          "Move+0, Attack+0 Revive all dead zealot in room "
+        ],
+        [
+          "Jump to farthest dead Zealot and revive or jump to farthest character and attack+0",
+          "Move+0, Attack+0 Revive all dead zealot in room "
+        ],
+        [
+          "Jump to farthest dead Zealot and revive or jump to farthest character and attack+0",
+          "Move+0, Attack+0 Revive all dead zealot in room "
+        ],
+        [
+          "Jump to farthest dead Zealot and revive or jump to farthest character and attack+0",
+          "Move+0, Attack+0 Revive all dead zealot in room "
+        ],
+        [
+          "Jump to farthest dead Zealot and revive or jump to farthest character and attack+0",
+          "Move+0, Attack+0 Revive all dead zealot in room "
+        ],
+        [
+          "Jump to farthest dead Zealot and revive or jump to farthest character and attack+0",
+          "Move+0, Attack+0 Revive all dead zealot in room "
+        ],
+        [
+          "Jump to farthest dead Zealot and revive or jump to farthest character and attack+0",
+          "Move+0, Attack+0 Revive all dead zealot in room "
+        ]
+      ]
     }
   },
   {
@@ -439,7 +485,42 @@
       "health": ["10*p", "14*p", "17*p", "20*p", "24*p", "28*p", "32*p", "36*p"],
       "movement": [2, 2, 2, 2, 3, 3, 3, 3],
       "attack": [3, 4, 4, 5, 5, 6, 7, 8],
-      "skills": [null, null, null, null, null, null, null, null]
+      "skills": [null, null, null, null, null, null, null, null],
+      "inmunities": ["disarm", "muddle", "stun", "immobilize", "curse"],
+      "special": [
+        [
+          "All enemies within Range 2 suffer 2 damage. Spawn P/2 Black imps",
+          "Attack+0, Attack-1 within Range 2 of target, Attack-2 within Range 2 of target"
+        ],
+        [
+          "All enemies within Range 2 suffer 2 damage. Spawn P/2 Black imps",
+          "Attack+0, Attack-1 within Range 2 of target, Attack-2 within Range 2 of target"
+        ],
+        [
+          "All enemies within Range 2 suffer 2 damage. Spawn P/2 Black imps",
+          "Attack+0, Attack-1 within Range 2 of target, Attack-2 within Range 2 of target"
+        ],
+        [
+          "All enemies within Range 2 suffer 2 damage. Spawn P/2 Black imps",
+          "Attack+0, Attack-1 within Range 2 of target, Attack-2 within Range 2 of target"
+        ],
+        [
+          "All enemies within Range 2 suffer 2 damage. Spawn P/2 Black imps",
+          "Attack+0, Attack-1 within Range 2 of target, Attack-2 within Range 2 of target"
+        ],
+        [
+          "All enemies within Range 2 suffer 2 damage. Spawn P/2 Black imps",
+          "Attack+0, Attack-1 within Range 2 of target, Attack-2 within Range 2 of target"
+        ],
+        [
+          "All enemies within Range 2 suffer 2 damage. Spawn P/2 Black imps",
+          "Attack+0, Attack-1 within Range 2 of target, Attack-2 within Range 2 of target"
+        ],
+        [
+          "All enemies within Range 2 suffer 2 damage. Spawn P/2 Black imps",
+          "Attack+0, Attack-1 within Range 2 of target, Attack-2 within Range 2 of target"
+        ]
+      ]
     }
   }
 ]

@@ -1,5 +1,6 @@
 import { Condition } from "@/components/condition";
 import { Stat } from "@/components/stat";
+import { InmunityManager } from "@/monsters/list/managers/inmunity-manager";
 import { Monster, MonsterSkills } from "@/monsters/types";
 
 export const StatsManager = (m: Monster) => {
@@ -17,7 +18,7 @@ export const StatsManager = (m: Monster) => {
           {attack}
         </Stat>
       </div>
-      <div className="flex flex-col items-end justify-start w-full h-full text-foreground">
+      <div className="flex flex-col items-end justify-start w-full h-full text-foreground gap-0.5">
         <Stat variant="default" size="default">
           {index}
         </Stat>
@@ -25,6 +26,8 @@ export const StatsManager = (m: Monster) => {
         {Object.entries(skills ?? {}).map(([key, value]) => (
           <Condition key={key} condition={key as MonsterSkills} value={value} />
         ))}
+
+        <InmunityManager {...m} />
       </div>
     </div>
   );

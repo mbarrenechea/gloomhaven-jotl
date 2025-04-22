@@ -25,7 +25,7 @@ import MONSTERS from "@/data/monsters.json";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { useLocalStorage } from "usehooks-ts";
-import { Monster, MonsterLevel } from "./types";
+import { Monster, MonsterInmunities, MonsterLevel } from "./types";
 import { useCallback, useEffect, useMemo, useRef } from "react";
 
 import { createParser } from "@adifkz/exp-p";
@@ -170,9 +170,22 @@ export const MonsterForm = () => {
             i: id + index,
             x: 0,
             y: 0,
-            w: values.type === "boss" ? 2 : 1,
-            h: values.type === "boss" ? 2 : 1,
+            w: 1,
+            h: 1,
           },
+          ...(type === "boss" && {
+            id: id + 1,
+            index: 1,
+            inmunities: (monster[type as "boss"]?.inmunities as MonsterInmunities[]) || [],
+            special: monster[type as "boss"]?.special[level] || [],
+            grid: {
+              i: id + 1,
+              x: 0,
+              y: 0,
+              w: 2,
+              h: 2,
+            },
+          }),
         } satisfies Monster;
       }).filter((monster) => monster !== null) as Monster[];
 
