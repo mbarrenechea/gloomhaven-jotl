@@ -64,9 +64,14 @@ export const ConditionManager = (m: Monster) => {
                     className={cn("flex items-center justify-start w-full", {
                       "opacity-50": !!m.conditions && condition in m.conditions,
                     })}
+                    disabled={!!m.inmunities && m.inmunities.includes(condition)}
                     onClick={() => handleConditionChange(condition, 1)}
                   >
-                    <Condition condition={condition} value={1} />
+                    <Condition
+                      condition={condition}
+                      value={1}
+                      inmunity={!!m.inmunities && m.inmunities.includes(condition)}
+                    />
                   </button>
                 </li>
               ))}

@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 import { ConditionManager } from "@/monsters/list/managers/condition-manager";
 import { DeathManager } from "@/monsters/list/managers/death-manager";
 import { HealthManager } from "@/monsters/list/managers/health-manager";
+import { SpecialManager } from "@/monsters/list/managers/special-manager";
 import { StatsManager } from "@/monsters/list/managers/stats-manager";
 import { Monster } from "@/monsters/types";
 import { useRef } from "react";
@@ -46,6 +47,7 @@ export const MonsterItem = (
 
       <ConditionManager {...monster} />
 
+      {/* Draggable */}
       <button
         type="button"
         className={cn(
@@ -64,6 +66,7 @@ export const MonsterItem = (
       <DeathManager {...monster} />
       <StatsManager {...monster} />
       <HealthManager {...monster} />
+      <SpecialManager {...monster} />
     </div>
   );
 };
